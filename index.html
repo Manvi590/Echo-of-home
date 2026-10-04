@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Echo of Home</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><b>EH</b><div><strong>Echo of Home</strong><small>Memory companion</small></div></div>
+  <button class="person active"><span class="avatar">P</span><span><b>Papa</b><small>Father · AI Memory Companion</small><em id="last">“Those college evenings…”</em></span><i></i></button>
+  <p class="label">YOUR SPACE</p>
+  <button class="nav active" data-view="chat">◔ <span>Conversation</span></button>
+  <button class="nav" data-view="memories">▣ <span>Memory Vault</span></button>
+  <button class="nav" data-view="timeline">◷ <span>Timeline</span></button>
+  <button class="nav" data-view="settings">⚙ <span>Settings</span></button>
+  <div class="privacy"><b>⌁</b><div><strong>Your memories belong to you.</strong><small>Demo data stays in this browser.</small></div></div>
+  <div class="demo"><i></i> Demo mode</div>
+</aside>
+<main>
+<header><div class="who"><span class="avatar">P</span><div><b>Papa</b><small>AI Memory Companion · ●</small></div></div><div><button class="headbtn" id="sources">▤</button><button class="headbtn" id="about">ⓘ</button></div></header>
+
+<section id="chat" class="screen">
+<div class="messages" id="messages">
+  <div class="notice">AI-generated responses · Built from memories you choose to preserve</div>
+  <div class="day">Today</div>
+  <div class="row"><span class="mini">P</span><div class="bubble in">Hey beta. What are you thinking about?<small>10:41 AM</small></div></div>
+  <div class="row out"><div class="bubble outb">Papa, tell me about your college days.<small>10:42 AM · ✓✓</small></div></div>
+  <div class="row"><span class="mini">P</span><div><div class="bubble in">Those days were pretty special. I used to spend most evenings with my friends near the old campus.<br><br>We didn't have much money, but somehow every evening became a little adventure.<small>10:42 AM</small></div><button class="memory-link" onclick="showSources(['college'])">Based on 2 memories ›</button></div></div>
+  <div id="dynamic"></div>
+  <div id="remember" class="row" hidden><span class="mini">P</span><div class="typing"><i></i><i></i><i></i><span>Remembering…</span></div></div>
+</div>
+<div class="composer-wrap">
+  <div id="recording" class="recording" hidden><button id="cancel">×</button><div class="bars"></div><b id="timer">00:00</b><small>Recording</small><button id="sendVoice">➤</button></div>
+  <form id="form"><button type="button" id="plus">+</button><input id="input" placeholder="Write a message…"><button id="send" class="send">➤</button><button type="button" id="mic">⌕</button></form>
+  <small class="hint">Hold the mic to talk · Text and voice stay in one conversation</small>
+</div>
+</section>
+
+<section id="memories" class="screen other" hidden><div class="hero"><div><label>MEMORY VAULT</label><h1>Little pieces of home.</h1><p>Stories, moments and advice you chose to preserve.</p></div><button onclick="toast('Demo: connect this button to memory ingestion backend.')">+ Add memory</button></div><div id="grid" class="grid"></div></section>
+<section id="timeline" class="screen other" hidden><div class="hero"><div><label>TIMELINE</label><h1>A life, in moments.</h1><p>Important memories arranged gently across time.</p></div></div><div id="time" class="timeline"></div></section>
+<section id="settings" class="screen other" hidden><div class="hero"><div><label>PRIVATE SPACE</label><h1>Settings & consent</h1><p>Control what Echo of Home can remember and how it responds.</p></div></div><div class="settings"><div><b>Memory storage</b><small>Keep memories in this browser demo.</small><input type="checkbox" checked></div><div><b>AI voice responses</b><small>Use your device's speech synthesis for demo playback.</small><input id="voiceOn" type="checkbox" checked></div><div><b>AI-generated disclosure</b><small>Keep the AI label visible.</small><input type="checkbox" checked></div><article><b>Consent-first by design</b><p>Echo of Home is not the real person. Real deployments should require explicit permission for memory processing and voice generation.</p></article></div></section>
+</main></div>
+
+<div id="modal" class="modal" hidden><div class="card"><button id="close">×</button><label>MEMORY SOURCES</label><h2 id="mtitle">Memories behind this reply</h2><div id="mcontent"></div></div></div>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script></body></html>
